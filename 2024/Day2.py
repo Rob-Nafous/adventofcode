@@ -1,5 +1,3 @@
-safe_reports = 0
-
 def Check(list):
     check_croissance=0
     check_decroissance=0
