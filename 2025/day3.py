@@ -10,19 +10,19 @@ class Joltage:
 
     def max_jolt(self, bank):
         list = []
+        max2 = 0
         for i in bank:
-            list.append(i)
-        index1, value1 = max(enumerate(list), key=lambda x: x[1]) #key=lambda x:x[1] compare the max value, not the index
-        list[index1] = "0"
-        index2, value2 = max(enumerate(list), key=lambda x: x[1]) #key=lambda x:x[1] compare the max value, not the index
-        if index1 < index2:
-            return int(str(value1) + str(value2))
-        else:
-            return int(str(value2) + str(value1))
+            list.append(int(i))
+        max1= list[0]
+        while True:
+            for j in range(len(list)-1):
+                if list[j] < list[j+1]:
+                    list[j] = 0
+                else:
+                    max1 = list[j]
+            print(max1, max2)
 
     def main(self):
         for i in self.input:
-            self.sum += self.max_jolt(i)
-        print(self.sum)
-
+            self.max_jolt(i)
 Joltage("day3.txt").main()
